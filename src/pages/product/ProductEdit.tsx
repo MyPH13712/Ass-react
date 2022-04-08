@@ -2,6 +2,7 @@ import axios, { Axios } from 'axios'
 import React, { useEffect, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useNavigate, useParams, NavLink } from 'react-router-dom'
+import { listCate } from '../../api/category'
 import { read } from '../../api/product'
 import { ProductType } from '../../types/product'
 
@@ -12,12 +13,22 @@ type FormInput = {
     name: string,
     price: number,
     image: string,
+    category: string
 }
 
 const ProductEdit = (props: ProductEditProps) => {
     const { id } = useParams();
     const { register, handleSubmit, formState: { errors }, reset } = useForm<FormInput>()
     const navigate = useNavigate()
+
+    const [cate, setCate] = useState();
+    useEffect(() => {
+        const getCate = async () => {
+            const { data } = await listCate();
+            setCate(data);
+        }
+        getCate()
+    }, [])
 
     useEffect(() => {
         const getProduct = async () => {
@@ -65,6 +76,15 @@ const ProductEdit = (props: ProductEditProps) => {
                                 <div className="shadow sm:rounded-md sm:overflow-hidden">
                                     <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
                                         <div className="mt-1">
+                                            <label className="block text-sm font-medium text-gray-700">Danh muc</label>
+                                            <select {...register('category')} className="mt-1 focus:ring-indigo-500 px-2 py-2 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 ">
+                                                <option> Chọn danh mục</option>
+                                                {cate && cate.map((item, index) => {
+                                                    return <option key={index} value={item._id}>{item.name}</option>
+                                                })}
+                                            </select>
+                                        </div>
+                                        <div className="mt-4">
                                             <label className="block text-sm font-medium text-gray-700">Tên sản phẩm</label>
                                             <input type="text" {...register('name')} className="mt-1 focus:ring-indigo-500  px-2 py-2 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300" />
                                         </div>

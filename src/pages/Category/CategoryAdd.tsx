@@ -1,9 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from "react";
-import { listCate } from "../../api/category";
 import { CategoryType } from "../../types/category";
-import axios from "axios";
 
 type CategoryAddProps = {
     onAddCate: (category: CategoryType) => void
@@ -20,9 +17,8 @@ const CategoryAdd = (props: CategoryAddProps) => {
 
         props.onAddCate(data);
         console.log(data);
-        
-        // navigate('/admin/category');
-        // window.location.reload()
+        navigate('/admin/category');
+        window.location.reload()
     }
 
 

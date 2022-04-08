@@ -74,8 +74,8 @@ const ProductAdd = (props: ProductAddProps) => {
                                             <label className="block text-sm font-medium text-gray-700">Danh muc</label>
                                             <select {...register('category')} className="mt-1 focus:ring-indigo-500 px-2 py-2 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 ">
                                                 <option> Chon danh muc </option>
-                                                {cate && cate.map((item) => {
-                                                    return <option value={item._id}>{item.name}</option>
+                                                {cate && cate.map((item,index) => {
+                                                    return <option key={index} value={item._id}>{item.name}</option>
                                                 })}
                                             </select>
                                         </div>

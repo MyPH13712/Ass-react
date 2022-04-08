@@ -84,7 +84,7 @@ function App() {
         <Route index element={<Navigate to="dashboard" />} />
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="category">
-          <Route index element={<ManagerCategory data={categories} onRemove={onHandleRemove} />} />
+          <Route index element={<ManagerCategory data={categories} onRemove={onHandleRemoveCate} />} />
           <Route path="add" element={<CategoryAdd onAddCate={onHandleAddCate} />} />
           <Route path=":id/edit" element={<CategoryEdit onUpdateCate={onHandleUpdateCate} />} />
         </Route>

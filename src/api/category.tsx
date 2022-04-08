@@ -1,5 +1,6 @@
 import { CategoryType } from '../types/category';
 import instance from './instance';
+
 const a = JSON.parse(localStorage.getItem("user") as string)
 
 export const listCate = () => {
@@ -11,12 +12,8 @@ export const removeCate = (id: number) => {
     return instance.delete(url);
 }
 export const addCate = (category: CategoryType) => {
-    const url = `/category/${a.user._id}`;
-    return instance.post(url, category, { 
-        headers: {
-            "Authorization": `Bearer ${a.token}`
-        }
-    });
+    const url = `/category`;
+    return instance.post(url, category);
 }
 export const updateCate = (category: CategoryType) => {
     const url = `/category/${category._id}`;
