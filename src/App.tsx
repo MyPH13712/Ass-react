@@ -16,7 +16,6 @@ import ProductEdit from './pages/product/ProductEdit';
 import Turtorial from './pages/Turtorial';
 import Signup from './pages/Signup';
 import Signin from './pages/Signin';
-import Category from './pages/Category';
 import { CategoryType } from './types/category';
 import ManagerCategory from './pages/Category/ManagerCategory';
 import CategoryAdd from './pages/Category/CategoryAdd';
@@ -86,6 +85,8 @@ function App() {
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="category">
           <Route index element={<ManagerCategory data={categories} onRemove={onHandleRemove} />} />
+          <Route path="add" element={<CategoryAdd onAddCate={onHandleAddCate} />} />
+          <Route path=":id/edit" element={<CategoryEdit onUpdateCate={onHandleUpdateCate} />} />
         </Route>
         <Route path="products">
           <Route index element={<ManagerProduct data={products} onRemove={onHandleRemove} />} />

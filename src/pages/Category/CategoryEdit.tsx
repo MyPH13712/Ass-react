@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useNavigate, useParams, NavLink } from 'react-router-dom'
 import { readCate } from '../../api/category'
-
 import { CategoryType } from '../../types/category'
 
 type CategoryEditProps = {

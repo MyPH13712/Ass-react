@@ -10,7 +10,7 @@ const ProductDetail = (props: ProductDetailProps) => {
     const [products, setProducts] = useState<ProductType[]>([]);
     useEffect(() => {
         const getProduct = async () => {
-            const { data } = await read(id);
+            const { data } = await read(_id);
             setProducts(data)
             console.log(data);
 

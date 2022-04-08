@@ -65,8 +65,8 @@ const ManagerCategory = (props: ManagerCategoryProps) => {
                             </td>
                            
                             <td className="px-4 py-4 whitespace-nowrap text-right text-sm font-medium">
-                              <Link to={`/admin/category/${item.id}/edit`} className="text-indigo-600 hover:text-indigo-900">Sửa</Link>
-                              <button onClick={() => props.onRemove(item.id)} className="btn inline-block bg-indigo-500 hover:bg-indigo-400 text-black text-sm py-2 px-6 mx-4 rounded">Xóa</button>
+                              <Link to={`/admin/category/${item._id}/edit`} className="text-indigo-600 hover:text-indigo-900">Sửa</Link>
+                              <button onClick={() => props.onRemove(item._id)} className="btn inline-block bg-indigo-500 hover:bg-indigo-400 text-black text-sm py-2 px-6 mx-4 rounded">Xóa</button>
                             </td>
                           </tr>
                         })}
