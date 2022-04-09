@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Banner from '../components/Banner'
 import { ProductType } from '../types/product'
 
@@ -23,8 +24,8 @@ const Home = (props: HomeProps) => {
                 <div className="flex justify-center items-center opacity-0 bg-gradient-to-t from-gray-800 via-gray-800 to-opacity-30 group-hover:opacity-50 absolute top-0 left-0 h-full w-full"></div>
                 <img src={item.image} alt="" />
               </div>
-              <p className="font-normal dark:text-black text-xl leading-5 text-stone-900 md:mt-6 mt-4">{item.name}</p>
-              <p className="font-semibold dark:text-black text-xl leading-5 text-stone-900 mt-4">{item.price}</p>
+              <Link to = {`/products/${item._id}`} className="no-underline"><p className="font-normal dark:text-black text-xl leading-5 text-stone-900 md:mt-6 mt-4">{item.name}</p></Link>
+              <p className="font-semibold dark:text-black text-xl leading-5 text-stone-900 mt-4">{item.price} đ</p>
             </div>
           })}
         </div>

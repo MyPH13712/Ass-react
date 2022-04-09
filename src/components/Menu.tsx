@@ -17,6 +17,9 @@ const Menu = (props: Props) => {
           <NavLink className="nav-link px-4 " to="/turtorial">Tutorial</NavLink>
         </li>
         <li className="nav-item">
+          <NavLink className="nav-link px-4 " to="/contact">Contact</NavLink>
+        </li>
+        <li className="nav-item">
           <NavLink className="nav-link px-4 " to="/admin">Dashboard</NavLink>
         </li>
       </ul>

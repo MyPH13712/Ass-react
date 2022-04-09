@@ -20,7 +20,25 @@ import { CategoryType } from './types/category';
 import ManagerCategory from './pages/Category/ManagerCategory';
 import CategoryAdd from './pages/Category/CategoryAdd';
 import CategoryEdit from './pages/Category/CategoryEdit';
+import Contact from './pages/Contact';
+import ProductDetail from './pages/product/ProductDetail';
 function App() {
+
+const [posts, setPosts] = useState([]);
+const [loading, setLoading] = useState(false);
+const [currentPage, setCurrentPage] = useState(1);
+const [postsPage, setPostsPage] = useState(10);
+
+useEffect(() => {
+  const fetchPosts =  async () => {
+    setLoading(true);
+    const res = await list();
+    setPosts(res.data);
+    setLoading(false);
+  }
+  fetchPosts()
+}, []);
+
   const [products, setProducts] = useState<ProductType[]>([]);
   useEffect(() => {
     const getProducts = async () => {
@@ -49,7 +67,6 @@ function App() {
     await removeCate(id);
     setCategory(categories.filter(item => item._id !== id));
   }
-  
   const onHandleAdd = async (product: ProductType) => {
     console.log('app.js', product);
     const { data } = await add(product);
@@ -75,7 +92,9 @@ function App() {
       <Route path="/" element={<WebsiteLayout />}>
         <Route index element={<Home data={products} />} />
         <Route path="product" element={<Product data={products} />} />
+        <Route path="products/:id" element={<ProductDetail data={products} />} />
         <Route path="turtorial" element={<Turtorial />} />
+        <Route path="contact" element={<Contact />} />
         <Route path="signup" element={<Signup />} />
         <Route path="signin" element={<Signin />} />
 
