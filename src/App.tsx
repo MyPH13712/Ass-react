@@ -24,21 +24,6 @@ import Contact from './pages/Contact';
 import ProductDetail from './pages/product/ProductDetail';
 function App() {
 
-const [posts, setPosts] = useState([]);
-const [loading, setLoading] = useState(false);
-const [currentPage, setCurrentPage] = useState(1);
-const [postsPage, setPostsPage] = useState(10);
-
-useEffect(() => {
-  const fetchPosts =  async () => {
-    setLoading(true);
-    const res = await list();
-    setPosts(res.data);
-    setLoading(false);
-  }
-  fetchPosts()
-}, []);
-
   const [products, setProducts] = useState<ProductType[]>([]);
   useEffect(() => {
     const getProducts = async () => {
