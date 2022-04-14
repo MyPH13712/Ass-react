@@ -13,6 +13,7 @@ type FormInput = {
     name: string,
     price: number,
     image: string,
+    desc: string,
     category: string
 }
 
@@ -95,6 +96,10 @@ const ProductEdit = (props: ProductEditProps) => {
                                         <div className="mt-4">
                                             <label className="block text-sm font-medium text-gray-700">Giá</label>
                                             <input type="number" {...register('price')} className="mt-1 focus:ring-indigo-500 px-2 py-2 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 " />
+                                        </div>
+                                        <div className="mt-4">
+                                            <label className="block text-sm font-medium text-gray-700">Mô tả</label>
+                                            <input type="text" {...register('desc')} className="mt-1 focus:ring-indigo-500  px-2 py-2 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300" />
                                         </div>
                                     </div>
                                     <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">

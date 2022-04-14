@@ -13,6 +13,7 @@ type FormValues = {
     name: string,
     price: number,
     image: string,
+    desc: string,
     category: string
 };
 
@@ -93,6 +94,11 @@ const ProductAdd = (props: ProductAddProps) => {
                                             <label className="block text-sm font-medium text-gray-700">Giá</label>
                                             <input type="number" {...register('price', { required: true})} className="my-2 focus:ring-indigo-500 px-2 py-2 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 " />
                                             {errors.price && errors.price.type === "required" && <span className="text-red-600">Không được để trống</span>}
+                                        </div>
+                                        <div className="mt-4">
+                                            <label className="block text-sm font-medium text-gray-700">Mô tả</label>
+                                            <input type="text" {...register('desc', { required: true})} className="my-2 focus:ring-indigo-500 px-2 py-2 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 " />
+                                            {errors.desc && errors.desc.type === "required" && <span className="text-red-600">Không được để trống</span>}
                                         </div>
                                     </div>
                                     <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">

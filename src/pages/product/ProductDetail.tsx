@@ -29,7 +29,7 @@ const ProductDetail = () => {
                     </div>
                     <div>
                         <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 mt-6 dark:text-gray-600">{products.price} đ</p>
-                        {/* <p className="text-base leading-4 mt-7 text-gray-900 dark:text-gray-600"><span className="font-semibold">Desc:</span> {item.desc}</p> */}
+                        <p className="text-base leading-4 mt-7 text-gray-900 dark:text-gray-600"><span className="font-semibold">Desc:</span> {products.desc}</p>
                     </div>
                     <div className="lg:mt-11 mt-10">
                         <div className="flex flex-row justify-between">

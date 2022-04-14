@@ -55,6 +55,9 @@ const ManagerProduct = (props: ManagerProductProps) => {
                           <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Price
                           </th>
+                          <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Desc
+                          </th>
                           <th scope="col" className="relative px-6 py-3">
                             <span className="sr-only">Edit</span>
                           </th>
@@ -72,6 +75,9 @@ const ManagerProduct = (props: ManagerProductProps) => {
                             <td className="px-4 py-4 whitespace-nowrap"><img src={item.image} width="100" alt="" /></td>
                             <td className="px-4 py-4 whitespace-nowrap">
                               {item.price}
+                            </td>
+                            <td className="px-4 py-4 whitespace-nowrap">
+                              {item.desc}
                             </td>
                             <td className="px-4 py-4 whitespace-nowrap text-right text-sm font-medium">
                               <Link to={`/admin/products/${item._id}/edit`} className="text-indigo-600 hover:text-indigo-900">Sửa</Link>
